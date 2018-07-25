@@ -1,0 +1,1358 @@
+{
+	"variables": [],
+	"info": {
+		"name": "CargoAgent",
+		"_postman_id": "837ef909-8576-cdec-0d51-1b7ca14d5469",
+		"description": "API Documentation of CargoAgent Module.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Info Module",
+			"request": {
+				"url": {
+					"raw": "http://localhost:1337/reSlim/src/api/cargoagent/get/info/?apikey={yourapikey}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1337",
+					"path": [
+						"reSlim",
+						"src",
+						"api",
+						"cargoagent",
+						"get",
+						"info",
+						""
+					],
+					"query": [
+						{
+							"key": "apikey",
+							"value": "{yourapikey}",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "Get Info Module\n---\nGet info detail about CargoAgent Module."
+			},
+			"response": []
+		},
+		{
+			"name": "Install",
+			"request": {
+				"url": "http://localhost:1337/reSlim/src/api/cargoagent/install/{yourusername}/{yourtoken}",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "Install CargoAgent Database\n---\nThis will install CargoAgent Database.\n\nNote:\n- Only user with role Superuser who can install.\n- Your exist database will be replaced if you ever install this before."
+			},
+			"response": []
+		},
+		{
+			"name": "Uninstall",
+			"request": {
+				"url": "http://localhost:1337/reSlim/src/api/cargoagent/uninstall/{yourusername}/{yourtoken}",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "Uninstall CargoAgent Database\n---\nThis will remove CargoAgent Database.\n\nNote:\n- Only user with role Superuser who can uninstall.\n- Your exist crudmod database will be removed clean."
+			},
+			"response": []
+		},
+		{
+			"name": "Generate Waybill Test",
+			"request": {
+				"url": "http://localhost:1337/reSlim/src/api/cargoagent/transaction/generate/waybill/{yourusername}/{yourtoken}",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "Generate Waybill Test\n---\nThis will generate new waybill number. Only for tester, because if you create new transaction the waybill number is auto generated."
+			},
+			"response": []
+		},
+		{
+			"name": "Create Transaction",
+			"request": {
+				"url": "http://localhost:1337/reSlim/src/api/cargoagent/transaction/data/new",
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "Username",
+							"value": "{yourusername}",
+							"description": "Length is 1-50 {alphanumeric,lowercase,required}",
+							"type": "text"
+						},
+						{
+							"key": "Token",
+							"value": "{yourtoken}",
+							"description": "Length is 1-250 {required}",
+							"type": "text"
+						},
+						{
+							"key": "CustomerID",
+							"value": "",
+							"description": "Length is 0-50",
+							"type": "text"
+						},
+						{
+							"key": "Consignor_name",
+							"value": "",
+							"description": "Length is 1-50 {required}",
+							"type": "text"
+						},
+						{
+							"key": "Consignor_alias",
+							"value": "",
+							"description": "Length is 0-50",
+							"type": "text"
+						},
+						{
+							"key": "Consignor_address",
+							"value": "",
+							"description": "Length is 1-250 {required}",
+							"type": "text"
+						},
+						{
+							"key": "Consignor_phone",
+							"value": "",
+							"description": "Length is 1-15 {numeric,required}",
+							"type": "text"
+						},
+						{
+							"key": "Consignor_fax",
+							"value": "",
+							"description": "Length is 0-10 {numeric}",
+							"type": "text"
+						},
+						{
+							"key": "Consignor_email",
+							"value": "",
+							"description": "Length is 0-50 {email}",
+							"type": "text"
+						},
+						{
+							"key": "ReferenceID",
+							"value": "",
+							"description": "Length is 0-50",
+							"type": "text"
+						},
+						{
+							"key": "Consignee_name",
+							"value": "",
+							"description": "Length is 1-50 {required}",
+							"type": "text"
+						},
+						{
+							"key": "Consignee_attention",
+							"value": "",
+							"description": "Length is 0-50",
+							"type": "text"
+						},
+						{
+							"key": "Consignee_address",
+							"value": "",
+							"description": "Length is 1-250 {required}",
+							"type": "text"
+						},
+						{
+							"key": "Consignee_phone",
+							"value": "",
+							"description": "Length is 1-15 {numeric,required}",
+							"type": "text"
+						},
+						{
+							"key": "Consignee_fax",
+							"value": "",
+							"description": "Length is 0-10 {numeric}",
+							"type": "text"
+						},
+						{
+							"key": "Mode",
+							"value": "Road Freight",
+							"description": "Length is 1-50 {required}",
+							"type": "text"
+						},
+						{
+							"key": "Origin",
+							"value": "Jakarta",
+							"description": "Length is 1-50 {required}",
+							"type": "text"
+						},
+						{
+							"key": "Destination",
+							"value": "Surabaya",
+							"description": "Length is 1-50 {required}",
+							"type": "text"
+						},
+						{
+							"key": "Estimation",
+							"value": "2",
+							"description": "Length is 1-7 {numeric,required}",
+							"type": "text"
+						},
+						{
+							"key": "Instruction",
+							"value": "Urgent",
+							"description": "Length is 0-250",
+							"type": "text"
+						},
+						{
+							"key": "Description",
+							"value": "Package of vouchers",
+							"description": "Length is 1-250 {required}",
+							"type": "text"
+						},
+						{
+							"key": "Goods_data",
+							"value": "[{\"no\":\"1\",\"length\":\"20\",\"width\":\"30\",\"height\":\"49\",\"actual\":\"1\",\"volume\":\"7.35\",\"total\":\"7.35\"}]",
+							"description": "Length is 0-1000 {json}",
+							"type": "text"
+						},
+						{
+							"key": "Goods_koli",
+							"value": "1",
+							"description": "Length is 1-5 {numeric,required}",
+							"type": "text"
+						},
+						{
+							"key": "Weight",
+							"value": "8",
+							"description": "Length is 1-7 {decimal,required}",
+							"type": "text"
+						},
+						{
+							"key": "Weight_real",
+							"value": "7.35",
+							"description": "Length is 1-7 {decimal,required}",
+							"type": "text"
+						},
+						{
+							"key": "Insurance_rate",
+							"value": "",
+							"description": "Length is 0-7 {decimal}",
+							"type": "text"
+						},
+						{
+							"key": "Goods_value",
+							"value": "",
+							"description": "Length is 0-10 {money,numeric}",
+							"type": "text"
+						},
+						{
+							"key": "Payment",
+							"value": "Cash",
+							"description": "Length is 1-50 {required}",
+							"type": "text"
+						},
+						{
+							"key": "Shipping_cost",
+							"value": "19500",
+							"description": "Length is 1-10 {money,numeric,required}",
+							"type": "text"
+						},
+						{
+							"key": "Shipping_insurance",
+							"value": "0",
+							"description": "Length is 1-10 {money,numeric,required}",
+							"type": "text"
+						},
+						{
+							"key": "Shipping_packing",
+							"value": "0",
+							"description": "Length is 1-10 {money,numeric,required}",
+							"type": "text"
+						},
+						{
+							"key": "Shipping_forward",
+							"value": "0",
+							"description": "Length is 1-10 {money,numeric,required}",
+							"type": "text"
+						},
+						{
+							"key": "Shipping_handling",
+							"value": "0",
+							"description": "Length is 1-10 {money,numeric,required}",
+							"type": "text"
+						},
+						{
+							"key": "Shipping_surcharge",
+							"value": "0",
+							"description": "Length is 1-10 {money,numeric,required}",
+							"type": "text"
+						},
+						{
+							"key": "Shipping_admin",
+							"value": "2000",
+							"description": "Length is 1-10 {money,numeric,required}",
+							"type": "text"
+						},
+						{
+							"key": "Shipping_discount",
+							"value": "0",
+							"description": "Length is 1-10 {money,numeric,required}",
+							"type": "text"
+						},
+						{
+							"key": "Shipping_cost_total",
+							"value": "21500",
+							"description": "Length is 1-10 {money,numeric,required}",
+							"type": "text"
+						},
+						{
+							"key": "Company_logo",
+							"value": "",
+							"description": "Length is 0-250 {url of image}",
+							"type": "text"
+						},
+						{
+							"key": "Company_name",
+							"value": "Your Company Name",
+							"description": "Length is 1-50 {required}",
+							"type": "text"
+						},
+						{
+							"key": "Company_address",
+							"value": "Your Company Address",
+							"description": "Length is 1-250 {required}",
+							"type": "text"
+						},
+						{
+							"key": "Company_phone",
+							"value": "",
+							"description": "Length is 1-15 {numeric,required}",
+							"type": "text"
+						},
+						{
+							"key": "Company_fax",
+							"value": "",
+							"description": "Length is 0-10 {numeric}",
+							"type": "text"
+						},
+						{
+							"key": "Company_email",
+							"value": "",
+							"description": "Length is 0-50 {email}",
+							"type": "text"
+						},
+						{
+							"key": "Company_tin",
+							"value": "",
+							"description": "Length is 0-50",
+							"type": "text"
+						},
+						{
+							"key": "Signature",
+							"value": "Signature of admin",
+							"description": "Length is 1-50 {required}",
+							"type": "text"
+						}
+					]
+				},
+				"description": "Create Transaction\n---\nThis will create new waybill transaction.\n\nNote:\n- All user is able to create new waybill transaction\n- This will credit balance deposit.\n- If your balance is not enough, you can't create new waybill transaction."
+			},
+			"response": []
+		},
+		{
+			"name": "Update Transaction",
+			"request": {
+				"url": "http://localhost:1337/reSlim/src/api/cargoagent/transaction/data/update",
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "Username",
+							"value": "{yourusername}",
+							"description": "Length is 1-50 {alphanumeric,lowercase,required}",
+							"type": "text"
+						},
+						{
+							"key": "Token",
+							"value": "{yourtoken}",
+							"description": "Length is 1-250 {required}",
+							"type": "text"
+						},
+						{
+							"key": "CustomerID",
+							"value": "",
+							"description": "Length is 0-50",
+							"type": "text"
+						},
+						{
+							"key": "Consignor_name",
+							"value": "",
+							"description": "Length is 1-50 {required}",
+							"type": "text"
+						},
+						{
+							"key": "Consignor_alias",
+							"value": "",
+							"description": "Length is 0-50",
+							"type": "text"
+						},
+						{
+							"key": "Consignor_address",
+							"value": "",
+							"description": "Length is 1-250 {required}",
+							"type": "text"
+						},
+						{
+							"key": "Consignor_phone",
+							"value": "",
+							"description": "Length is 1-15 {numeric,required}",
+							"type": "text"
+						},
+						{
+							"key": "Consignor_fax",
+							"value": "",
+							"description": "Length is 0-10 {numeric}",
+							"type": "text"
+						},
+						{
+							"key": "Consignor_email",
+							"value": "",
+							"description": "Length is 0-50 {email}",
+							"type": "text"
+						},
+						{
+							"key": "ReferenceID",
+							"value": "",
+							"description": "Length is 0-50",
+							"type": "text"
+						},
+						{
+							"key": "Consignee_name",
+							"value": "",
+							"description": "Length is 1-50 {required}",
+							"type": "text"
+						},
+						{
+							"key": "Consignee_attention",
+							"value": "",
+							"description": "Length is 0-50",
+							"type": "text"
+						},
+						{
+							"key": "Consignee_address",
+							"value": "",
+							"description": "Length is 1-250 {required}",
+							"type": "text"
+						},
+						{
+							"key": "Consignee_phone",
+							"value": "",
+							"description": "Length is 1-15 {numeric,required}",
+							"type": "text"
+						},
+						{
+							"key": "Consignee_fax",
+							"value": "",
+							"description": "Length is 0-10 {numeric}",
+							"type": "text"
+						},
+						{
+							"key": "Mode",
+							"value": "Road Freight",
+							"description": "Length is 1-50 {required}",
+							"type": "text"
+						},
+						{
+							"key": "Origin",
+							"value": "Jakarta",
+							"description": "Length is 1-50 {required}",
+							"type": "text"
+						},
+						{
+							"key": "Destination",
+							"value": "Surabaya",
+							"description": "Length is 1-50 {required}",
+							"type": "text"
+						},
+						{
+							"key": "Estimation",
+							"value": "2",
+							"description": "Length is 1-7 {numeric,required}",
+							"type": "text"
+						},
+						{
+							"key": "Instruction",
+							"value": "Urgent",
+							"description": "Length is 0-250",
+							"type": "text"
+						},
+						{
+							"key": "Description",
+							"value": "Package of vouchers",
+							"description": "Length is 1-250 {required}",
+							"type": "text"
+						},
+						{
+							"key": "Goods_data",
+							"value": "[{\"no\":\"1\",\"length\":\"20\",\"width\":\"30\",\"height\":\"49\",\"actual\":\"1\",\"volume\":\"7.35\",\"total\":\"7.35\"}]",
+							"description": "Length is 0-1000 {json}",
+							"type": "text"
+						},
+						{
+							"key": "Goods_koli",
+							"value": "1",
+							"description": "Length is 1-5 {numeric,required}",
+							"type": "text"
+						},
+						{
+							"key": "Weight",
+							"value": "8",
+							"description": "Length is 1-7 {decimal,required}",
+							"type": "text"
+						},
+						{
+							"key": "Weight_real",
+							"value": "7.35",
+							"description": "Length is 1-7 {decimal,required}",
+							"type": "text"
+						},
+						{
+							"key": "Insurance_rate",
+							"value": "",
+							"description": "Length is 0-7 {decimal}",
+							"type": "text"
+						},
+						{
+							"key": "Goods_value",
+							"value": "",
+							"description": "Length is 0-10 {money,numeric}",
+							"type": "text"
+						},
+						{
+							"key": "Payment",
+							"value": "Cash",
+							"description": "Length is 1-50 {required}",
+							"type": "text"
+						},
+						{
+							"key": "Shipping_cost",
+							"value": "19500",
+							"description": "Length is 1-10 {money,numeric,required}",
+							"type": "text"
+						},
+						{
+							"key": "Shipping_insurance",
+							"value": "0",
+							"description": "Length is 1-10 {money,numeric,required}",
+							"type": "text"
+						},
+						{
+							"key": "Shipping_packing",
+							"value": "0",
+							"description": "Length is 1-10 {money,numeric,required}",
+							"type": "text"
+						},
+						{
+							"key": "Shipping_forward",
+							"value": "0",
+							"description": "Length is 1-10 {money,numeric,required}",
+							"type": "text"
+						},
+						{
+							"key": "Shipping_handling",
+							"value": "0",
+							"description": "Length is 1-10 {money,numeric,required}",
+							"type": "text"
+						},
+						{
+							"key": "Shipping_surcharge",
+							"value": "0",
+							"description": "Length is 1-10 {money,numeric,required}",
+							"type": "text"
+						},
+						{
+							"key": "Shipping_admin",
+							"value": "2000",
+							"description": "Length is 1-10 {money,numeric,required}",
+							"type": "text"
+						},
+						{
+							"key": "Shipping_discount",
+							"value": "0",
+							"description": "Length is 1-10 {money,numeric,required}",
+							"type": "text"
+						},
+						{
+							"key": "Shipping_cost_total",
+							"value": "21500",
+							"description": "Length is 1-10 {money,numeric,required}",
+							"type": "text"
+						},
+						{
+							"key": "Company_logo",
+							"value": "",
+							"description": "Length is 0-250 {url of image}",
+							"type": "text"
+						},
+						{
+							"key": "Company_name",
+							"value": "Your Company Name",
+							"description": "Length is 1-50 {required}",
+							"type": "text"
+						},
+						{
+							"key": "Company_address",
+							"value": "Your Company Address",
+							"description": "Length is 1-250 {required}",
+							"type": "text"
+						},
+						{
+							"key": "Company_phone",
+							"value": "",
+							"description": "Length is 1-15 {numeric,required}",
+							"type": "text"
+						},
+						{
+							"key": "Company_fax",
+							"value": "",
+							"description": "Length is 0-10 {numeric}",
+							"type": "text"
+						},
+						{
+							"key": "Company_email",
+							"value": "",
+							"description": "Length is 0-50 {email}",
+							"type": "text"
+						},
+						{
+							"key": "Company_tin",
+							"value": "",
+							"description": "Length is 0-50",
+							"type": "text"
+						},
+						{
+							"key": "Signature",
+							"value": "Signature of admin",
+							"description": "Length is 1-50 {required}",
+							"type": "text"
+						},
+						{
+							"key": "Waybill",
+							"value": "{waybill number}",
+							"description": "Length is 1-20 {alphanumeric,required}",
+							"type": "text"
+						}
+					]
+				},
+				"description": "Update Transaction\n---\nThis will update the data waybill transaction.\n\nNote:\n- Only user with Superuser and Admin who can update other user of waybill transaction."
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Transaction",
+			"request": {
+				"url": "http://localhost:1337/reSlim/src/api/cargoagent/transaction/data/delete",
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "Username",
+							"value": "{yourusername}",
+							"description": "Length is 1-50 {alphanumeric,lowercase,required}",
+							"type": "text"
+						},
+						{
+							"key": "Token",
+							"value": "{yourtoken}",
+							"description": "Length is 1-250 {required}",
+							"type": "text"
+						},
+						{
+							"key": "Waybill",
+							"value": "{waybill number}",
+							"description": "Length is 1-20 {alphanumeric,required}",
+							"type": "text"
+						}
+					]
+				},
+				"description": "Delete Transaction\n---\nThis will delete the waybill transaction\n\nNote:\n- Only user with role Superuser who can delete the waybill transaction."
+			},
+			"response": []
+		},
+		{
+			"name": "Void Transaction",
+			"request": {
+				"url": "http://localhost:1337/reSlim/src/api/cargoagent/transaction/data/void",
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "Username",
+							"value": "{yourusername}",
+							"description": "Length is 1-50 {alphanumeric,lowercase,required}",
+							"type": "text"
+						},
+						{
+							"key": "Token",
+							"value": "{yourtoken}",
+							"description": "Length is 1-250 {required}",
+							"type": "text"
+						},
+						{
+							"key": "Waybill",
+							"value": "{waybill number}",
+							"description": "Length is 1-20 {alphanumeric,required}",
+							"type": "text"
+						},
+						{
+							"key": "Description",
+							"value": "",
+							"description": "Length is 1-250 {required}",
+							"type": "text"
+						}
+					]
+				},
+				"description": "Void Transaction\n---\nThis will make void the waybill transaction.\n\nNote:\n- Only user with role Superuser and Admin who can void the waybill transaction of other users.\n- Make void will not refund the balance."
+			},
+			"response": []
+		},
+		{
+			"name": "POD Delivered",
+			"request": {
+				"url": "http://localhost:1337/reSlim/src/api/cargoagent/transaction/data/pod/delivered",
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "Username",
+							"value": "{yourusername}",
+							"description": "Length is 1-50 {alphanumeric,lowercase,required}",
+							"type": "text"
+						},
+						{
+							"key": "Token",
+							"value": "{yourtoken}",
+							"description": "Length is 1-250 {required}",
+							"type": "text"
+						},
+						{
+							"key": "Waybill",
+							"value": "{waybill number}",
+							"description": "Length is 1-20 {alphanumeric,required}",
+							"type": "text"
+						},
+						{
+							"key": "Recipient",
+							"value": "",
+							"description": "Length is 1-50 {required}",
+							"type": "text"
+						},
+						{
+							"key": "Relation",
+							"value": "",
+							"description": "Length is 1-50 {required}",
+							"type": "text"
+						}
+					]
+				},
+				"description": "POD Delivered\n---\nThis will make status delivered of waybill.\n\nNote:\n- Only user who create the waybill that can make status delivered."
+			},
+			"response": []
+		},
+		{
+			"name": "POD Failed",
+			"request": {
+				"url": "http://localhost:1337/reSlim/src/api/cargoagent/transaction/data/pod/failed",
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "Username",
+							"value": "{yourusername}",
+							"description": "Length is 1-50 {alphanumeric,lowercase,required}",
+							"type": "text"
+						},
+						{
+							"key": "Token",
+							"value": "{yourtoken}",
+							"description": "Length is 1-250 {required}",
+							"type": "text"
+						},
+						{
+							"key": "Waybill",
+							"value": "{waybill number}",
+							"description": "Length is 1-20 {alphanumeric,required}",
+							"type": "text"
+						},
+						{
+							"key": "Description",
+							"value": "",
+							"description": "Length is 1-250 {required}",
+							"type": "text"
+						}
+					]
+				},
+				"description": "POD Failed\n---\nThis will make status failed of waybill.\n\nNote:\n- Only user who create the waybill that can make status failed."
+			},
+			"response": []
+		},
+		{
+			"name": "POD Return",
+			"request": {
+				"url": "http://localhost:1337/reSlim/src/api/cargoagent/transaction/data/pod/returned",
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "Username",
+							"value": "{yourusername}",
+							"description": "Length is 1-50 {alphanumeric,lowercase,required}",
+							"type": "text"
+						},
+						{
+							"key": "Token",
+							"value": "{yourtoken}",
+							"description": "Length is 1-250 {required}",
+							"type": "text"
+						},
+						{
+							"key": "Waybill",
+							"value": "{waybill number}",
+							"description": "Length is 1-20 {alphanumeric,required}",
+							"type": "text"
+						}
+					]
+				},
+				"description": "POD Return\n---\nThis will make status return of waybill.\n\nNote:\n- Only user who create the waybill that can make status return.\n- You need to make the waybill status to failed before can make status return."
+			},
+			"response": []
+		},
+		{
+			"name": "POD Return Asked by Consignee",
+			"request": {
+				"url": "http://localhost:1337/reSlim/src/api/cargoagent/transaction/data/pod/returned/consignee",
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "Username",
+							"value": "{yourusername}",
+							"description": "Length is 1-50 {alphanumeric,lowercase,required}",
+							"type": "text"
+						},
+						{
+							"key": "Token",
+							"value": "{yourtoken}",
+							"description": "Length is 1-250 {required}",
+							"type": "text"
+						},
+						{
+							"key": "Waybill",
+							"value": "{waybill number}",
+							"description": "Length is 1-20 {alphanumeric,required}",
+							"type": "text"
+						}
+					]
+				},
+				"description": "POD Return\n---\nThis will make status return of waybill which is return is asked by consignee.\n\nNote:\n- Only user who create the waybill that can make status return.\n- You need to make the waybill status to failed before can make status return."
+			},
+			"response": []
+		},
+		{
+			"name": "POD Return Asked by Consignor",
+			"request": {
+				"url": "http://localhost:1337/reSlim/src/api/cargoagent/transaction/data/pod/returned/consignor",
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "Username",
+							"value": "{yourusername}",
+							"description": "Length is 1-50 {alphanumeric,lowercase,required}",
+							"type": "text"
+						},
+						{
+							"key": "Token",
+							"value": "{yourtoken}",
+							"description": "Length is 1-250 {required}",
+							"type": "text"
+						},
+						{
+							"key": "Waybill",
+							"value": "{waybill number}",
+							"description": "Length is 1-20 {alphanumeric,required}",
+							"type": "text"
+						}
+					]
+				},
+				"description": "POD Return\n---\nThis will make status return of waybill which is return is asked by consignor.\n\nNote:\n- Only user who create the waybill that can make status return.\n- You need to make the waybill status to failed before can make status return."
+			},
+			"response": []
+		},
+		{
+			"name": "Waybill Detail",
+			"request": {
+				"url": "http://localhost:1337/reSlim/src/api/cargoagent/transaction/data/waybill/{yourusername}/{yourtoken}/{waybill}",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "Waybill Detail\n---\nThis will show the data detail of Waybill."
+			},
+			"response": []
+		},
+		{
+			"name": "Waybill Detail Trace",
+			"request": {
+				"url": {
+					"raw": "http://localhost:1337/reSlim/src/api/cargoagent/transaction/data/trace/waybill/{yourusername}/{yourtoken}/?no={waybill}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1337",
+					"path": [
+						"reSlim",
+						"src",
+						"api",
+						"cargoagent",
+						"transaction",
+						"data",
+						"trace",
+						"waybill",
+						"{yourusername}",
+						"{yourtoken}",
+						""
+					],
+					"query": [
+						{
+							"key": "no",
+							"value": "{waybill}",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "Waybill Detail Trace\n---\nThis will show the data detail also trace or shipment history of Waybill."
+			},
+			"response": []
+		},
+		{
+			"name": "Waybill Detail Trace Public",
+			"request": {
+				"url": {
+					"raw": "http://localhost:1337/reSlim/src/api/cargoagent/transaction/data/public/trace/detail/waybill/?apikey={yourapikey}&lang=en&no={waybill}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1337",
+					"path": [
+						"reSlim",
+						"src",
+						"api",
+						"cargoagent",
+						"transaction",
+						"data",
+						"public",
+						"trace",
+						"detail",
+						"waybill",
+						""
+					],
+					"query": [
+						{
+							"key": "apikey",
+							"value": "{yourapikey}",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "lang",
+							"value": "en",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "no",
+							"value": "{waybill}",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "Waybill Detail Trace Public\n---\nThis will show the data detail also trace or shipment history of Waybill for public access with api key."
+			},
+			"response": []
+		},
+		{
+			"name": "Waybill Simple Trace Public",
+			"request": {
+				"url": {
+					"raw": "http://localhost:1337/reSlim/src/api/cargoagent/transaction/data/public/trace/simple/waybill/?apikey={yourapikey}&lang=en&no={waybill}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1337",
+					"path": [
+						"reSlim",
+						"src",
+						"api",
+						"cargoagent",
+						"transaction",
+						"data",
+						"public",
+						"trace",
+						"simple",
+						"waybill",
+						""
+					],
+					"query": [
+						{
+							"key": "apikey",
+							"value": "{yourapikey}",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "lang",
+							"value": "en",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "no",
+							"value": "{waybill}",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "Waybill Simple Trace Public\n---\nThis will show the data detail also trace or shipment history of Waybill for public access with api key.  \nThis is the simple version."
+			},
+			"response": []
+		},
+		{
+			"name": "Transaction Data Paginated",
+			"request": {
+				"url": {
+					"raw": "http://localhost:1337/reSlim/src/api/cargoagent/transaction/data/search/{yourusername}/{yourtoken}/{page}/{itemsperpage}/?firstdate={yyyy-mm-dd}&lastdate={yyyy-mm-dd}&query={query to search}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1337",
+					"path": [
+						"reSlim",
+						"src",
+						"api",
+						"cargoagent",
+						"transaction",
+						"data",
+						"search",
+						"{yourusername}",
+						"{yourtoken}",
+						"{page}",
+						"{itemsperpage}",
+						""
+					],
+					"query": [
+						{
+							"key": "firstdate",
+							"value": "{yyyy-mm-dd}",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "lastdate",
+							"value": "{yyyy-mm-dd}",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "query",
+							"value": "{query to search}",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "Transaction Data Paginated\n---\nThis will show all data waybill transaction of user with pagination and search.\n\nNote:\n- User with role Superuser and Admin can see all transaction of other users.."
+			},
+			"response": []
+		},
+		{
+			"name": "Stat Transaction Summary Year",
+			"request": {
+				"url": "http://localhost:1337/reSlim/src/api/cargoagent/transaction/stats/data/summary/{year}/{yourusername}/{yourtoken}",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "Stat Transaction Summary Year\n---\nThis is to show summary of the Waybill Transaction of the year."
+			},
+			"response": []
+		},
+		{
+			"name": "Stat Transaction Chart Year",
+			"request": {
+				"url": "http://localhost:1337/reSlim/src/api/cargoagent/transaction/stats/data/chart/{year}/{yourusername}/{yourtoken}",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "Stat Transaction Chart Year\n---\nThis is to show summary of the Waybill Transaction of the year.\n\nNote:\n---\n- Format json was set to support using chartist.js as default."
+			},
+			"response": []
+		},
+		{
+			"name": "Config Add New",
+			"request": {
+				"url": "http://localhost:1337/reSlim/src/api/cargoagent/config/add",
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "Username",
+							"value": "",
+							"description": "Length is 1-50 {alphanumeric,lowercase,required}",
+							"type": "text"
+						},
+						{
+							"key": "Token",
+							"value": "",
+							"description": "Length is 1-250 {required}",
+							"type": "text"
+						},
+						{
+							"key": "Key",
+							"value": "",
+							"description": "Length is 1-50 {alphanumeric,underscore,required}",
+							"type": "text"
+						},
+						{
+							"key": "Value",
+							"value": "",
+							"description": "Length is 1-10000 {json,required}",
+							"type": "text"
+						},
+						{
+							"key": "Description",
+							"value": "",
+							"description": "Length is 0-250",
+							"type": "text"
+						}
+					]
+				},
+				"description": "Config Add New\n---\nThis is to create custom configuration of user.\n\nNote:\n- Key must be unique. Example: **config_yourusername**.\n- This commonly use for saving the value like Company logo, name, address, signature, default discount value, etc. of each user.\n- The value format must be json for flexible change,easy to maintenance and extendable."
+			},
+			"response": []
+		},
+		{
+			"name": "Config Update",
+			"request": {
+				"url": "http://localhost:1337/reSlim/src/api/cargoagent/config/update",
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "Username",
+							"value": "",
+							"description": "Length is 1-50 {alphanumeric,lowercase,required}",
+							"type": "text"
+						},
+						{
+							"key": "Token",
+							"value": "",
+							"description": "Length is 1-250 {required}",
+							"type": "text"
+						},
+						{
+							"key": "Key",
+							"value": "",
+							"description": "Length is 1-50 {alphanumeric,underscore,required}",
+							"type": "text"
+						},
+						{
+							"key": "Value",
+							"value": "",
+							"description": "Length is 1-10000 {json,required}",
+							"type": "text"
+						},
+						{
+							"key": "Description",
+							"value": "",
+							"description": "Length is 0-250",
+							"type": "text"
+						}
+					]
+				},
+				"description": "Config Update\n---\nThis is to update the custom configuration of user.\n\nNote:\n- All role is able to update the user config, so make sure the key is unique and private.\n- This commonly use for saving the value like Company logo, name, address, signature, default discount value, etc. of each user.\n- The value format must be json for flexible change,easy to maintenance and extendable."
+			},
+			"response": []
+		},
+		{
+			"name": "Config Delete",
+			"request": {
+				"url": "http://localhost:1337/reSlim/src/api/cargoagent/config/delete",
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "Username",
+							"value": "",
+							"description": "Length is 1-50 {alphanumeric,lowercase,required}",
+							"type": "text"
+						},
+						{
+							"key": "Token",
+							"value": "",
+							"description": "Length is 1-250 {required}",
+							"type": "text"
+						},
+						{
+							"key": "Key",
+							"value": "",
+							"description": "Length is 1-50 {alphanumeric,underscore,required}",
+							"type": "text"
+						}
+					]
+				},
+				"description": "Config Delete\n---\nThis is to delete the custom configuration per user.\n\nNote:\n- All role is able to delete the user config, so make sure the key is unique and private."
+			},
+			"response": []
+		},
+		{
+			"name": "Config Read",
+			"request": {
+				"url": "http://localhost:1337/reSlim/src/api/cargoagent/config/read/{key}/{yourusername}/{yourtoken}",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "Config Read\n---\nThis will show the data config by key."
+			},
+			"response": []
+		},
+		{
+			"name": "Config Read Public",
+			"request": {
+				"url": {
+					"raw": "http://localhost:1337/reSlim/src/api/cargoagent/config/read/{key}/?apikey={yourapikey}&lang=en",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1337",
+					"path": [
+						"reSlim",
+						"src",
+						"api",
+						"cargoagent",
+						"config",
+						"read",
+						"{key}",
+						""
+					],
+					"query": [
+						{
+							"key": "apikey",
+							"value": "{yourapikey}",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "lang",
+							"value": "en",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "Config Read Public\n---\nThis will show the data config by key for public access with api key.\n\nNote:\n- Public access is using cache with lifetime cache is 300 seconds"
+			},
+			"response": []
+		},
+		{
+			"name": "Config Index",
+			"request": {
+				"url": {
+					"raw": "http://localhost:1337/reSlim/src/api/cargoagent/config/index/{yourusername}/{yourtoken}/{page}/{itemsperpage}/?query={query to search}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1337",
+					"path": [
+						"reSlim",
+						"src",
+						"api",
+						"cargoagent",
+						"config",
+						"index",
+						"{yourusername}",
+						"{yourtoken}",
+						"{page}",
+						"{itemsperpage}",
+						""
+					],
+					"query": [
+						{
+							"key": "query",
+							"value": "{query to search}",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "Config Index\n---\nThis will index, show or scan all data config with pagination and searchable."
+			},
+			"response": []
+		}
+	]
+}
