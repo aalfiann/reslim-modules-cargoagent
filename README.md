@@ -32,4 +32,4 @@ After successful integration database, you must remove the **install** and **uni
 Just make some edit in the **cargoagent.router.php** file manually.
 
 ### Requirement
-- This module is require module [Deposit](https://github.com/aalfiann/reslim-modules-deposit) installed on reSlim.
+- This module is require [Deposit](https://github.com/aalfiann/reslim-modules-deposit) module installed on reSlim.
