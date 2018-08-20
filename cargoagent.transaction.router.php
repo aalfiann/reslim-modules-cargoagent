@@ -319,7 +319,7 @@ use \classes\SimpleCache as SimpleCache;                        //SimpleCache cl
         if (SimpleCache::isCached(300,["apikey","lang","no"])){
             $datajson = SimpleCache::load(["apikey","lang","no"]);
         } else {
-            $datajson = SimpleCache::save($cargo->traceWaybillDetailPublic(),["apikey","lang","no"]);
+            $datajson = SimpleCache::save($cargo->traceWaybillDetailPublic(),["apikey","lang","no"],null,300);
         }
         $body->write($datajson);
         return classes\Cors::modify($response,$body,200,$request);
@@ -335,7 +335,7 @@ use \classes\SimpleCache as SimpleCache;                        //SimpleCache cl
         if (SimpleCache::isCached(300,["apikey","lang","no"])){
             $datajson = SimpleCache::load(["apikey","lang","no"]);
         } else {
-            $datajson = SimpleCache::save($cargo->traceWaybillSimplePublic(),["apikey","lang","no"]);
+            $datajson = SimpleCache::save($cargo->traceWaybillSimplePublic(),["apikey","lang","no"],null,300);
         }
         $body->write($datajson);
         return classes\Cors::modify($response,$body,200,$request);

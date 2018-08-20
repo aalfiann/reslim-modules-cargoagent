@@ -107,7 +107,7 @@ use \classes\SimpleCache as SimpleCache;                        //SimpleCache cl
         if (SimpleCache::isCached(300,["apikey","lang"])){
             $datajson = SimpleCache::load(["apikey","lang"]);
         } else {
-            $datajson = SimpleCache::save($cf->readPublic(),["apikey","lang"]);
+            $datajson = SimpleCache::save($cf->readPublic(),["apikey","lang"],null,300);
         }
         $body->write($datajson);
         return classes\Cors::modify($response,$body,200,$request);
