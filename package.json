@@ -3,7 +3,7 @@
         "name": "CargoAgent",
         "url": "https://github.com/aalfiann/reslim-modules-cargoagent",
         "description": "Cargo Agent management system",
-        "version": "1.0.1",
+        "version": "1.0.2",
         "require": {
             "reSlim": "1.9.0"
         },

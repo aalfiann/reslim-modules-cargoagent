@@ -311,14 +311,14 @@ use \classes\SimpleCache as SimpleCache;                        //SimpleCache cl
 
     // GET api to show data trace waybill detail public
     $app->map(['GET','OPTIONS'],'/cargoagent/transaction/data/public/trace/detail/waybill/', function (Request $request, Response $response) {
-        $cargo = new Transaction($this->db);
-        $cargo->lang = (empty($_GET['lang'])?$this->settings['language']:$_GET['lang']);
-        $cargo->waybill = filter_var((empty($_GET['no'])?'':$_GET['no']),FILTER_SANITIZE_STRING);
         $response = $this->cache->withEtag($response, $this->etag.'-'.trim($_SERVER['REQUEST_URI'],'/'));
         $body = $response->getBody();
         if (SimpleCache::isCached(300,["apikey","lang","no"])){
             $datajson = SimpleCache::load(["apikey","lang","no"]);
         } else {
+            $cargo = new Transaction($this->db);
+            $cargo->lang = (empty($_GET['lang'])?$this->settings['language']:$_GET['lang']);
+            $cargo->waybill = filter_var((empty($_GET['no'])?'':$_GET['no']),FILTER_SANITIZE_STRING);
             $datajson = SimpleCache::save($cargo->traceWaybillDetailPublic(),["apikey","lang","no"],null,300);
         }
         $body->write($datajson);
@@ -327,14 +327,14 @@ use \classes\SimpleCache as SimpleCache;                        //SimpleCache cl
 
     // GET api to show data trace waybill simple public
     $app->map(['GET','OPTIONS'],'/cargoagent/transaction/data/public/trace/simple/waybill/', function (Request $request, Response $response) {
-        $cargo = new Transaction($this->db);
-        $cargo->lang = (empty($_GET['lang'])?$this->settings['language']:$_GET['lang']);
-        $cargo->waybill = filter_var((empty($_GET['no'])?'':$_GET['no']),FILTER_SANITIZE_STRING);
         $response = $this->cache->withEtag($response, $this->etag.'-'.trim($_SERVER['REQUEST_URI'],'/'));
         $body = $response->getBody();
         if (SimpleCache::isCached(300,["apikey","lang","no"])){
             $datajson = SimpleCache::load(["apikey","lang","no"]);
         } else {
+            $cargo = new Transaction($this->db);
+            $cargo->lang = (empty($_GET['lang'])?$this->settings['language']:$_GET['lang']);
+            $cargo->waybill = filter_var((empty($_GET['no'])?'':$_GET['no']),FILTER_SANITIZE_STRING);
             $datajson = SimpleCache::save($cargo->traceWaybillSimplePublic(),["apikey","lang","no"],null,300);
         }
         $body->write($datajson);

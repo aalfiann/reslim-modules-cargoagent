@@ -99,14 +99,14 @@ use \classes\SimpleCache as SimpleCache;                        //SimpleCache cl
     
     // GET api to read single data for public user (include cache)
     $app->map(['GET','OPTIONS'],'/cargoagent/config/read/{key}/', function (Request $request, Response $response) {
-        $cf = new Config($this->db);
-        $cf->lang = (empty($_GET['lang'])?$this->settings['language']:$_GET['lang']);
-        $cf->key = $request->getAttribute('key');
         $body = $response->getBody();
         $response = $this->cache->withEtag($response, $this->etag.'-'.trim($_SERVER['REQUEST_URI'],'/'));
         if (SimpleCache::isCached(300,["apikey","lang"])){
             $datajson = SimpleCache::load(["apikey","lang"]);
         } else {
+            $cf = new Config($this->db);
+            $cf->lang = (empty($_GET['lang'])?$this->settings['language']:$_GET['lang']);
+            $cf->key = $request->getAttribute('key');
             $datajson = SimpleCache::save($cf->readPublic(),["apikey","lang"],null,300);
         }
         $body->write($datajson);
